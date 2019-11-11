@@ -23,7 +23,7 @@ public class Sistemaacademico {
 
 			switch (OpcaoMenu) {  
 				case 3:
-					this.pesquisarAl uno();
+					this.pesquisarAluno();
 					break;
 				case 4:
 					this.pesquisarProfessor();
@@ -59,13 +59,13 @@ public class Sistemaacademico {
 					this.cadastrarProfessor(new Professor());
 					break;  
 				case 3:
-					this.pesquisarAluno();
+					this.cadastrarTurma(new Turma());	
 					break;
 				case 4:
 					this.pesquisarProfessor();
 					break;
 				case 5:
-					this.cadastrarTurma(new Turma());	
+					this.pesquisarAluno();
 					break;
 				case 6:
 					this.pesquisarTurma();
@@ -169,13 +169,9 @@ public class Sistemaacademico {
 
 	// ***************************************
 	public void cadastrarProfessor(Professor professor) {
-		professor.setNome(JOptionPane.showInputDialog("Insira o nome do Porfessor: "));
-		professor.setRegistro(JOptionPane.showInputDialog("Insira a matrícula do Professor: "));
-		professor.setSexo(JOptionPane.showInputDialog("Insira o curso do Professor: "));
-		professor.setEndereco(JOptionPane.showInputDialog("Insira o endereço do Professor: "));
-		professor.setSexo(JOptionPane.showInputDialog("Insira o sexo do Professor: "));
-		professor.setTelefone(JOptionPane.showInputDialog("Insira o telefone do Professor: "));
-
+		professor.setNome(JOptionPane.showInputDialog("Insira o nome do professor: "));
+		professor.setRegistro(JOptionPane.showInputDialog("Insira a matrícula do professor: "));
+		professor.setDisciplinasMinistradas(JOptionPane.showInputDialog("Insira a disciplina que o professor ministra: "));
 		professores.add(professor);
 
 	}
@@ -183,7 +179,7 @@ public class Sistemaacademico {
 	public void pesquisarProfessor() {
 		String registro;
 
-		registro = JOptionPane.showInputDialog("Insira o registro do Professor a ser pesquisado: ");
+		registro = JOptionPane.showInputDialog("Insira o registro do professor a ser pesquisado: ");
 
 		Professor professor = null;
 
@@ -195,9 +191,8 @@ public class Sistemaacademico {
 
 		if (professor != null) {
 			JOptionPane.showMessageDialog(null,
-					"Professor consta no sistema!\nNome: " + professor.getNome() + "\nEndereço: "
-							+ professor.getEndereco() + "\nCurso: " + professor.getDisciplinasMinistradas() + "\nSexo: "
-							+ professor.getSexo() + "\nTelefone: " + professor.getTelefone());
+					"Professor consta no sistema!\nNome: " + professor.getNome() + "\nRegistro: "
+							+ professor.getRegistro() + "\nCurso: " + professor.getDisciplinasMinistradas());
 		} else {
 			JOptionPane.showMessageDialog(null, "Professor não encontrado!", "Aviso", JOptionPane.ERROR_MESSAGE);
 		}
@@ -207,7 +202,7 @@ public class Sistemaacademico {
 	public void excluirAluno() {
 		String matricula;
 
-		matricula = JOptionPane.showInputDialog("Insira a matrícula do aluno a ser deletado: ");
+		matricula = JOptionPane.showInputDialog("Insira a matrícula do aluno a ser deletada: ");
 
 		Aluno aluno = null;
 
@@ -226,7 +221,7 @@ public class Sistemaacademico {
 	public void excluirProfessor() {
 		String registro;
 
-		registro = JOptionPane.showInputDialog("Insira o registro do Professor a ser pesquisado: ");
+		registro = JOptionPane.showInputDialog("Insira o registro do professor a ser pesquisado: ");
 
 		Professor professor = null;
 
@@ -245,7 +240,7 @@ public class Sistemaacademico {
 	public void excluirTurma() {
             String materia;
         	
-            materia = JOptionPane.showInputDialog("Insira o nome da Turma a ser pesquisado: ");
+            materia = JOptionPane.showInputDialog("Insira o nome da turma a ser pesquisada: ");
 
             Turma turma = null;
             
